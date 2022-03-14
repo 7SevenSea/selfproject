@@ -7,7 +7,7 @@
       <table class="category-table">
         <tr>
           <th>順序</th>
-          <th>カテゴリー名</th>
+          <th>カテゴリー</th>
           <th>編集</th>
           <th>削除</th>
         </tr>
