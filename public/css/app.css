@@ -1,0 +1,356 @@
+@charset "utf-8";
+/* index
+0. Reset
+1. Common
+2. Top-layout
+3. Second-layout
+4. Third-layout
+5. Contact-layout
+6. Tab
+7. Mobile
+8. Replacement
+*/
+
+/* font */
+/*@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700');*/
+
+/**************************************************
+0. Reset
+***************************************************/
+html,
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+li,
+table,
+tr,
+th,
+td,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: "Helvevetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+img {
+  border: none;
+  vertical-align: bottom;
+}
+
+input[type="button"],
+input[type="text"],
+input[type="submit"],
+input[type="image"],
+input[type="date"],
+textarea {
+  -webkit-appearance: none;
+  font-size: 16px;
+  border-radius: 0;
+}
+
+img.menu_image {
+  width: 96px;
+  height: 65px;
+}
+
+p.error {
+  color: red;
+  font-size: 14px;
+}
+
+.modal-main{
+  display: none;
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+#popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.popup {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  background-color: white;
+}
+/*----------------------------------
+ヘッダー
+----------------------------------*/
+header{
+  display: flex;
+  background-color: #bff8ff;
+  border-bottom: solid rgb(66, 217, 255);
+  border-width:0.05cm;
+}
+.header-left{
+  width: 70%;
+}
+.logout{
+  text-align: center;
+  padding: 8px 8px;
+  background: rgb(102, 194, 255);
+  color: #fff;
+  line-height: 1em;
+  margin: 5px 0 5px 15px;
+}
+#current-time{
+  font-family: "Comic Sans MS";
+  color: #797878;
+  font-size: 30px;
+  width: 30%;
+  margin: 0 30px 0 0;
+  display: flex;
+  justify-content: right;
+}
+
+/*----------------------------------
+ホーム画面
+----------------------------------*/
+.home-text{
+  font-family: "ヒラギノ丸ゴProN";
+  color: #fff;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.button-wrap, .login-wrap{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.button-box{
+  width: 100px;
+  height: 100px;
+  border-radius: 25px;
+  background-color: #9c9c9c;
+  border-bottom: 6px solid #797878;
+  padding: 15px;
+  transition: all 0.6s;
+  margin: 15px;
+  margin-top: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.button-box:hover{
+  margin-top: 80px;
+  background-color: #e9e8d8;
+  border-bottom: 4px solid #b6b5a6;
+}
+
+.menu-text{
+  font-family: "ヒラギノ丸ゴProN";
+  color:rgb(60, 60, 60);
+  font-size: 23px;
+  text-align: center;
+  display: block;
+  margin-top: 15px;
+}
+
+.menu-text:hover{
+  color:rgba(130, 130, 130, 0.7);
+}
+
+/* 背景アニメーション */
+.bg{
+  background-color:#09f;
+  top: 0%;
+  bottom: 0%;
+  width: 2000px;
+  height: 2000px;
+  position:fixed;
+  opacity:0.5;
+  z-index:-2;
+}
+.bg-animation {
+  animation:action 5.5s ease-in-out infinite alternate;
+  background-color:#09f;
+  opacity:0.5;
+  position:fixed;
+  width: 2000px;
+  height: 2000px;
+  z-index:-1;
+}
+.bg-animation2 {
+  animation-direction:alternate;
+  animation-duration:10s;
+}
+
+@keyframes action {
+  0% {
+    transform:translateY(-500px);
+  }
+  100% {
+    transform:translateY(800px);
+  }
+}
+
+/* ログイン画面 */
+.login-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-container {
+  max-width: 800px;
+  width: auto;
+  margin: 0 auto;
+  padding: 80px 0;
+  height: 400px;
+  text-align: center;
+}
+
+input#email, input#password {
+    display: block;
+    border: 1px solid;
+    width: 400px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    transition-duration: 0.25s;
+}
+  input#email:focus, input#password:focus{
+      width: 450px;
+}
+
+.login-container button {
+    background-color: white;
+    border: 0;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    border-radius: 3px;
+    box-shadow: 0px 4px #888;
+    width: 300px;
+    cursor: pointer;
+    font-size: 18px;
+    transition-duration: 0.25s;
+}
+
+.login-container button:active {
+  box-shadow: none;
+  position: relative;
+  top:4px;
+}
+
+/**************************************************
+1. Common
+***************************************************/
+/*----------------------------------
+common
+----------------------------------*/
+
+/*----------------------------------
+header
+----------------------------------*/
+
+/*----------------------------------
+footer
+----------------------------------*/
+
+/**************************************************
+2. Top-layout
+***************************************************/
+
+/**************************************************
+3. Second-layout
+***************************************************/
+
+/**************************************************
+4. Third-layout
+***************************************************/
+
+/**************************************************
+5. Contact-layout
+***************************************************/
+
+/**************************************************
+6. Tab
+***************************************************/
+@media screen and (max-width: 959px) {
+/*----------------------------------
+common
+----------------------------------*/
+
+/*----------------------------------
+top
+----------------------------------*/
+
+/*----------------------------------
+second
+----------------------------------*/
+
+/*----------------------------------
+third
+----------------------------------*/
+
+/*----------------------------------
+contact
+----------------------------------*/
+}
+
+/**************************************************
+7. Mobile
+***************************************************/
+@media screen and (max-width: 767px) {
+/*----------------------------------
+common
+----------------------------------*/
+
+/*----------------------------------
+top
+----------------------------------*/
+
+/*----------------------------------
+second
+----------------------------------*/
+
+/*----------------------------------
+third
+----------------------------------*/
+
+/*----------------------------------
+contact
+----------------------------------*/
+}
+
+/**************************************************
+8. Replacement
+***************************************************/
