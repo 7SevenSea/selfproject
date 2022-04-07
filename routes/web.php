@@ -78,10 +78,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/customer/store', 'CustomerController@store')->name('customer.store');
     // おすすめ画面
     Route::get('/order/menu/pickup/{customer}', 'CustomerController@pickupShow')->name('pickup.show');
+    //ランキング画面
+    Route::get('/order/menu/ranking', 'CustomerController@ranking')->name('customer.ranking');
     // 注文画面
     Route::get('/order/menu/{customer}/{category}', 'CustomerController@show')->name('customer.show');
     //数量選択画面
     Route::get('/order/menu/{customer}/{menu}/number', 'CustomerController@number')->name('customer.order.number');
     //注文する
     Route::get('/order/menu/number', 'CustomerController@addCart')->name('customer.order.addCart');
+    //お気に入り登録
+    Route::get('/order/menu/like', 'CustomerController@like')->name('like');
 });
