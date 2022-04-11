@@ -10,4 +10,10 @@ class like extends Model
     {
         return $this->belongsTo('App\Order');
     }
+
+    public function menus()
+    {
+        return $this->hasMany('App\Menu');
+    }
+
 }

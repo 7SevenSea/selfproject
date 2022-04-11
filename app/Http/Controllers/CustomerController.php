@@ -6,7 +6,9 @@ use App\Customer;
 use App\Order;
 use App\Category;
 use App\Menu;
+use App\Like;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class CustomerController extends Controller
 {
@@ -150,4 +152,24 @@ class CustomerController extends Controller
         $pickupMenus = Menu::where('pickup', '1')->get();
         return view('customer.pickup', compact('customer', 'pickupMenus', 'tableId'));
     }
+
+    public function ranking()
+    {
+        $today = Carbon::today();
+        $dailies = Order::whereDate('created_at', $today)->withCount('menu')
+        ->orderBy('menu_count', 'desc')->paginate(3);
+
+        return view('customer.ranking', compact('dailies'));
+    }
+
+    public function like(Request $request)
+    {
+        $like = new Like;
+        $like->menu_id = $request->menuId;
+        $like->save();
+
+        return back()->withInput();
+    }
+
+
 }

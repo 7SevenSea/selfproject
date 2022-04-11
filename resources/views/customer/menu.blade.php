@@ -22,6 +22,8 @@
       <div><button id="close">閉じる</button></div>
     </div>
   </div>
+    <!-- ランキングページ -->
+    <button><a href="{{ route('customer.ranking') }}">ランキングページ</a></button>
   <div>
     <button><a href="{{ route('pickup.show', $customer) }}">おすすめ商品</a></button>
     @foreach($categories as $category)
@@ -74,6 +76,11 @@
       <input type="hidden" name="menuId" value="{{ $menu->id }}">
       <label for="number">数量</label><input type="number" name="number" id="number" min="1" max="10">
       <input type="submit" value="注文する" onclick="return confirm('注文を確定してよろしいですか？')">
+    </form>
+    <form action="{{ route('like') }}" method="get">
+      @csrf
+      <input type="hidden" name="menuId" value="{{ $menu->id }}">
+      <input type="submit" value="お気に入り" onclick="return confirm('お気に入りにしますか？')">
     </form>
     <a href="" class="modalClose">戻る</a>
   </div>
