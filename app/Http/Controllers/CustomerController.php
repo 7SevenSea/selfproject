@@ -155,9 +155,23 @@ class CustomerController extends Controller
 
     public function ranking()
     {
+        //デイリーランキング
         $today = Carbon::today();
         $dailies = Order::whereDate('created_at', $today)->withCount('menu')
         ->orderBy('menu_count', 'desc')->paginate(3);
+
+        //週間ランキング
+        $sevenDays = Carbon::today()->subDay(7);
+        $week = Order::whereDate('created_at', $sevenDays)->get();
+
+        //月間ランキング
+        $dt_from = new \Carbon\Carbon();
+		$dt_from->startOfMonth();
+
+		$dt_to = new \Carbon\Carbon();
+		$dt_to->endOfMonth();
+
+		$reports = Report::whereBetween('report_date', [$dt_from, $dt_to])->get();
 
         return view('customer.ranking', compact('dailies'));
     }
