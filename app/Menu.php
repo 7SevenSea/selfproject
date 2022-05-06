@@ -21,5 +21,10 @@ class Menu extends Model
         return $this->hasMany('App\Like');
     }
 
+    public function groups()
+    {
+        return $this->hasMany('App\Group');
+    }
+
     protected $fillable = ['order', 'category_id', 'name', 'price', 'pickup', 'stock'];
 }

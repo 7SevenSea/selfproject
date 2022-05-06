@@ -18,6 +18,7 @@ class CreateMenusTable extends Migration
             $table->integer('order');
             $table->integer('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->integer('group_id')->nullable();
             $table->string('name',255);
             $table->integer('price');
             $table->integer('stock');
